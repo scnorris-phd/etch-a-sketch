@@ -1,5 +1,6 @@
 const container = document.getElementById("gridContainer");
 
+// The following function returns a random color in Hex format. However, it seems that an RGBA format is needed to get the opacity effect to work properly.
 function getRandomColor() {
     let letters = '0123456789ABCDEF'.split('');
     let color = '#';
@@ -7,6 +8,19 @@ function getRandomColor() {
         color += letters[Math.round(Math.random() * 15)];
     }
     return color;
+}
+
+//The following is an attempt at a color randomizer in RGBA format, beginning with a random integer function which is needed to pull a random number between 0 and 255.
+function randomInteger(max) {
+    return Math.floor(Math.random()*(max + 1));
+}
+
+function rgbaRandomizer() {
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
+    let a = 0.1
+    return [r, g, b, a]
 }
 
 function createGrid(num) {
