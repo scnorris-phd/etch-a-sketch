@@ -1,1 +1,5 @@
 # etch-a-sketch
+
+This is the Etch-A-Sketch project for the Odin Project's Foundations course. The aim of the project is to build a webpage that approximates the classic Etch-A-Sketch toy. The user can fill in the cells of the sketchpad by hovering their pointer over a cell while the "Control" key is depressed.
+
+The sketchpad defaults to a 16x16 cell grid. The user can press a button to change the grid size from 2x2 at a minimum and 100x100 at a maximum. Whichever scale is chosen, the overall sketchpad dimensions remain the same. "Extra credit" features have been added, as well, including a function which increases the opacity of the cell fill color with each mouseover event, and the option to toggle between a black & white sketchpad and a version will colored cells. Minor stylistic flourishes have been added, as well.
