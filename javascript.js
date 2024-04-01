@@ -41,3 +41,25 @@ function createGrid(num) {
 }
 
 createGrid(16);
+
+function newGrid() {
+    let newGridSize = prompt("Enter a number between 2 and 100");
+
+    if (newGridSize > 100) {
+        newGridSize = 100;
+    } else if (newGridSize < 2) {
+        newGridSize = 16;
+    } else if (newGridSize >= 2 && newGridSize <= 100) {
+        newGridSize;
+    } else {
+        newGridSize = 16;
+    }
+
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild);
+    }
+    createGrid(newGridSize);
+}
+
+const button = document.getElementById("btn");
+button.addEventListener("click", newGrid);
