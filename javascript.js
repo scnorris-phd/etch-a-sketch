@@ -19,8 +19,8 @@ function rgbaRandomizer() {
     let r = randomInteger(255);
     let g = randomInteger(255);
     let b = randomInteger(255);
-    let a = 0.1
-    return [r, g, b, a]
+    let color = `rgba(${r}, ${g}, ${b}, 0.1)`;
+    return color;
 }
 
 function createGrid(num) {
@@ -31,21 +31,35 @@ function createGrid(num) {
         row.style.flex = "1";
         row.style.margin = "0";
 
-        function createCell(a) {
-            for (let j = 1; j <= a; j++) {
+        function createCell(num2) {
+            for (let j = 1; j <= num2; j++) {
                 const cell = document.createElement("div");
                 cell.style.border = "1px solid black";
                 cell.style.margin = "0";
-                cell.style.backgroundColor = "white";
+                cell.style.backgroundColor = "rgba(255, 255, 255, 1)";
                 cell.style.flex = "1";
+                
+                let a = 0;
+
                 function colorChange(event) {
                     if (event.ctrlKey) {
-                        cell.style.backgroundColor = "black";
+                        cell.style.backgroundColor = `rgba(0, 0, 0, ${a})`;
                     }
                 }
+                
+                function increaseOpacity(event) {
+                    if (event.ctrlKey) {
+                        a += 0.1;
+                        cell.style.backgroundColor = `rgba(0, 0, 0, ${a})`;
+                        console.log(cell.style.backgroundColor);
+                    }
+                }
+
                 cell.addEventListener("mouseover", () => {
                     colorChange(event);
+                    increaseOpacity(event);
                 });
+                
                 row.appendChild(cell);
             }
         }
@@ -91,11 +105,11 @@ function colorGrid(num) {
                 const cell = document.createElement("div");
                 cell.style.border = "1px solid black";
                 cell.style.margin = "0";
-                cell.style.backgroundColor = "white";
+                cell.style.backgroundColor = "rgba(255, 255, 255, 1)";
                 cell.style.flex = "1";
                 function colorChange(event) {
                     if (event.ctrlKey) {
-                        cell.style.backgroundColor = getRandomColor();
+                        cell.style.backgroundColor = rgbaRandomizer();
                     }
                 }
                 cell.addEventListener("mouseover", () => {
