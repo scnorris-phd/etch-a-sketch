@@ -1,25 +1,15 @@
 const container = document.getElementById("gridContainer");
 
-// The following function returns a random color in Hex format. However, it seems that an RGBA format is needed to get the opacity effect to work properly.
-function getRandomColor() {
-    let letters = '0123456789ABCDEF'.split('');
-    let color = '#';
-    for (let i = 0; i < 6; i++ ) {
-        color += letters[Math.round(Math.random() * 15)];
-    }
-    return color;
-}
-
-//The following is an attempt at a color randomizer in RGBA format, beginning with a random integer function which is needed to pull a random number between 0 and 255.
+//The random integer function is needed to pull a random number between 0 and 255 in the rgba randomizer function.
 function randomInteger(max) {
     return Math.floor(Math.random()*(max + 1));
 }
 
-function rgbaRandomizer() {
+function rgbaRandomizer(a) {
     let r = randomInteger(255);
     let g = randomInteger(255);
     let b = randomInteger(255);
-    let color = `rgba(${r}, ${g}, ${b}, 0.1)`;
+    let color = `rgba(${r}, ${g}, ${b}, ${a})`;
     return color;
 }
 
@@ -51,7 +41,7 @@ function createGrid(num) {
                     if (event.ctrlKey) {
                         a += 0.1;
                         cell.style.backgroundColor = `rgba(0, 0, 0, ${a})`;
-                        console.log(cell.style.backgroundColor);
+                        // console.log(cell.style.backgroundColor); For debugging
                     }
                 }
 
@@ -107,14 +97,28 @@ function colorGrid(num) {
                 cell.style.margin = "0";
                 cell.style.backgroundColor = "rgba(255, 255, 255, 1)";
                 cell.style.flex = "1";
+                
+                let alpha = 0;
+
                 function colorChange(event) {
                     if (event.ctrlKey) {
-                        cell.style.backgroundColor = rgbaRandomizer();
+                        cell.style.backgroundColor = rgbaRandomizer(0.1);
                     }
                 }
+                
+                function increaseOpacity(event) {
+                    if (event.ctrlKey) {
+                        alpha += 0.1;
+                        cell.style.backgroundColor = rgbaRandomizer(alpha);
+                        //console.log(cell.style.backgroundColor); For debugging
+                    }
+                }
+
                 cell.addEventListener("mouseover", () => {
                     colorChange(event);
+                    increaseOpacity(event);
                 });
+                
                 row.appendChild(cell);
             }
         }
