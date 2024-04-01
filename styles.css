@@ -1,0 +1,33 @@
+* {
+    background-color: antiquewhite;
+}
+
+h1 {
+    text-align: center;
+    margin: 32px;
+}
+
+button {
+    padding: 8px;
+    background-color: cornsilk;
+    margin-left: 32px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+
+#gridContainer {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 960px;
+    height: 960px;
+    border: 2px solid black;
+}
