@@ -43,7 +43,7 @@ function createGrid(num) {
 createGrid(16);
 
 function newGrid() {
-    let newGridSize = prompt("Enter a number between 2 and 100");
+    let newGridSize = prompt("Enter a number between 2 and 100 to change the size of the grid cells. Invalid entries will return the default grid.");
 
     if (newGridSize > 100) {
         newGridSize = 100;
@@ -61,5 +61,5 @@ function newGrid() {
     createGrid(newGridSize);
 }
 
-const button = document.getElementById("btn");
-button.addEventListener("click", newGrid);
+const newGridButton = document.getElementById("newGridBtn");
+newGridButton.addEventListener("click", newGrid);

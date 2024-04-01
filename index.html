@@ -8,7 +8,22 @@
 </head>
 <body>
     <h1>Etch-A-Sketch</h1>
-    <button id="btn">New Grid</button>
+    <div id="instructions"><span>Instructions:</span>
+        <ul>
+            <li>The Etch-A-Sketch defaults to a 16x16 black and white grid.</li>
+            <li>To fill a cell, hold down the "Control" button on your keyboard and hover your pointer over the cell.</li>
+            <li>Click on the "New Grid" button to generate a new custom-sized black and white grid.</li>
+            <li>Click the "Color Toggle" to make the Etch-A-Sketch fabulous!</li>
+        </ul>
+    </div>
+    <div id="btnContainer">
+        <button id="newGridBtn">
+            <span class="button_top">New Grid</span>
+        </button>
+        <button id="styleBtn">
+            <span class="button_top">Color Toggle</span>
+        </button>
+    </div>
     <div id="container">
         <div id="gridContainer"></div>
     </div>
