@@ -34,7 +34,7 @@ a:hover {
 
 #btnContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 /* Button design source: https://uiverse.io/Voxybuns/lucky-fireant-71 */
@@ -49,6 +49,7 @@ button {
     border: none;
     border-radius: var(--button_radius);
     background: var(--button_outline_color);
+    margin: 0 60px;
 }
   
 .button_top {
@@ -73,6 +74,11 @@ button:active .button_top {
     transform: translateY(0);
 }
 
+#meta-container {
+    display: flex;
+    justify-content: center;
+}
+
 #container {
     display: flex;
     justify-content: center;
@@ -80,6 +86,8 @@ button:active .button_top {
     border: 48px solid red;
     border-radius: 32px;
     background-color: rgba(255, 255, 255, 1);
+    width: 600px;
+    height: 600px;
 }
 
 #gridContainer {
@@ -90,7 +98,6 @@ button:active .button_top {
     display: flex;
     flex-direction: column;
     flex: 1;
-    width: 960px;
-    height: 960px;
+    
     border: 2px solid black;
 }
